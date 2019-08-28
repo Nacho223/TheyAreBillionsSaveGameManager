@@ -14,24 +14,16 @@ namespace Savegame_Manager
 {
     public partial class Form1 : Form
     {
-        System.Timers.Timer refreshTimer = new System.Timers.Timer();
         private static readonly string path = Path.Combine(Environment.ExpandEnvironmentVariables("%userprofile%"), "Documents\\My Games\\");
         private string selectedNode = string.Empty;
 
         public Form1()
         {
             InitializeComponent();
-            refreshTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            refreshTimer.Interval = 60000;
-            refreshTimer.Enabled = true;
             PopulateTreeView();
            // PopulateTreeViewTo();
         }
 
-        private void OnTimedEvent(object source, EventArgs e)
-        {
-            PopulateTreeView();
-        }
 
         private void PopulateTreeView()
         {
